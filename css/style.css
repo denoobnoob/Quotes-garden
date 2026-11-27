@@ -220,3 +220,35 @@ body {
   font-size: calc(var(--u) * 20);
   cursor: pointer;
 }
+#site-title .ch {
+  display: inline-block;
+  animation:
+    letterWave 2.4s ease-in-out infinite,
+    letterColour 8s linear infinite;
+  animation-delay:
+    calc(var(--i) * -0.15s),
+    calc(var(--i) * -0.6s);
+}
+
+#site-title .sp {
+  width: 0.3em;
+}
+
+@keyframes letterWave {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-0.06em); }
+}
+
+@keyframes letterColour {
+  0%   { color: #a6ff96; }
+  25%  { color: #ffd372; }
+  50%  { color: #f28b82; }
+  75%  { color: #e8a0b4; }
+  100% { color: #a6ff96; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #site-title .ch {
+    animation: none;
+  }
+}
