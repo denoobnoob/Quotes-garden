@@ -91,7 +91,12 @@
     el.style.height = height + 'px';
     el.style.zIndex = Math.round(opts.depth * 100);
     el.style.opacity = band.opacity;
-    el.style.filter = band.blur > 0 ? 'blur(' + band.blur + 'px)' : 'none';
+    if (opts.animate) {
+      // Soft shadow so the new quote flower stands out from the garden
+      el.style.filter = 'drop-shadow(0 6px 10px rgba(40, 60, 30, 0.3))';
+    } else {
+      el.style.filter = band.blur > 0 ? 'blur(' + band.blur + 'px)' : 'none';
+    }
 
     garden.appendChild(el);
 
