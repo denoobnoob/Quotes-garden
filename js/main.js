@@ -1,7 +1,3 @@
----
-
-**js/main.js**
-
 javascript (function () { 'use strict';
 
 var GARDEN_FLOWER_COUNT = 26; var HOLD_MS = 5000; // form stays hidden for 5 seconds var TAGLINE_OUT_MS = 4200; // tagline fades out just before the form returns
@@ -36,16 +32,7 @@ var el = document.createElement('div'); el.className = 'flower'; el.style.left =
 
 garden.appendChild(el);
 
-if (opts.animate) {
-      playGrowth(el);
-    } else {
-      showStill(el);
-      // Background flowers sway slowly, each at its own speed and timing
-      el.classList.add('sway');
-      el.style.setProperty('--sway-duration', rand(5, 9).toFixed(1) + 's');
-      el.style.setProperty('--sway-delay', (-rand(0, 9)).toFixed(1) + 's');
-    }
-    return el;
+if (opts.animate) { playGrowth(el); } else { showStill(el); } return el; }
 
 function saveQuote(entry) { return fetch('/api/save-quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(entry) }).then(function (res) { if (!res.ok) throw new Error('Save failed with status ' + res.status); return res.json(); }); }
 
