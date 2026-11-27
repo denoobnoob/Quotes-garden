@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
- var GARDEN_FLOWER_COUNT = 53;   // number of default flowers along the bottom
-  var GARDEN_MIN_HEIGHT = 0.24;  // default flowers are 9.6% to 18% of the window height
-  var GARDEN_MAX_HEIGHT = 0.28;
+  var GARDEN_FLOWER_COUNT = 53;   // number of default flowers along the bottom
+  var GARDEN_MIN_HEIGHT = 0.34;   // default flowers average around 35% of the window height
+  var GARDEN_MAX_HEIGHT = 0.40;
   var GARDEN_SIZE_MIN = 1.05;     // then 5% to 8% larger, varying from flower to flower
   var GARDEN_SIZE_MAX = 1.08;
   var HOLD_MS = 5000;             // form stays hidden for 5 seconds
@@ -83,10 +83,8 @@
     var maxHeight = window.innerHeight * 0.5; // never more than 50% of the frame
     var height = Math.min(opts.baseHeight * band.scale, maxHeight);
 
-    // New flower rises from mid-screen; default flowers sit along the bottom strip
-    var bottomPct = opts.animate
-      ? 5 + opts.depth * 40
-      : opts.depth * 3;
+    // Every flower stems from the bottom edge of the frame
+    var bottomPct = 0;
 
     var el = document.createElement('div');
     el.className = 'flower';
@@ -140,6 +138,12 @@
     busy = true;
     setStatus('');
     formWrap.classList.add('is-hidden');
+
+    // Show the submitted quote in the background, in quotation marks
+    tagline.textContent = '\u201C' + entry.quote + '\u201D';
+    // Long quotes use a smaller font so they still fit on screen
+    tagline.style.fontSize = entry.quote.length > 120 ? '22px' : '';
+
     tagline.classList.add('is-visible');
 
     createFlower({
@@ -184,7 +188,3 @@
       depth: rand(0, 0.95),
       baseHeight: rand(GARDEN_MIN_HEIGHT, GARDEN_MAX_HEIGHT) * window.innerHeight *
                   rand(GARDEN_SIZE_MIN, GARDEN_SIZE_MAX),
-      animate: false
-    });
-  }
-})();
