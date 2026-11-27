@@ -1,9 +1,11 @@
 (function () {
   'use strict';
 
-  var GARDEN_FLOWER_COUNT = 50;   // number of default flowers along the bottom
+  var GARDEN_FLOWER_COUNT = 42;   // number of default flowers along the bottom
   var GARDEN_MIN_HEIGHT = 0.08;   // default flowers are 8% to 15% of the window height
   var GARDEN_MAX_HEIGHT = 0.15;
+  var GARDEN_SIZE_MIN = 1.05;     // then 5% to 8% larger, varying from flower to flower
+  var GARDEN_SIZE_MAX = 1.08;
   var HOLD_MS = 5000;             // form stays hidden for 5 seconds
   var TAGLINE_OUT_MS = 4200;      // tagline fades out just before the form returns
 
@@ -174,12 +176,14 @@
     }, HOLD_MS);
   });
 
-  // Default garden: a strip along the bottom, 8% to 15% of the window height
+  // Default garden: spread evenly along the bottom strip, with slight randomness
+  var slotWidth = 100 / GARDEN_FLOWER_COUNT;
   for (var i = 0; i < GARDEN_FLOWER_COUNT; i++) {
     createFlower({
-      left: rand(0, 98),
+      left: Math.max(0, i * slotWidth + rand(-slotWidth * 0.3, slotWidth * 0.3)),
       depth: rand(0, 0.95),
-      baseHeight: rand(GARDEN_MIN_HEIGHT, GARDEN_MAX_HEIGHT) * window.innerHeight,
+      baseHeight: rand(GARDEN_MIN_HEIGHT, GARDEN_MAX_HEIGHT) * window.innerHeight *
+                  rand(GARDEN_SIZE_MIN, GARDEN_SIZE_MAX),
       animate: false
     });
   }
