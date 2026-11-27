@@ -1,9 +1,11 @@
 (function () {
   'use strict';
 
-  var GARDEN_FLOWER_COUNT = 26;
-  var HOLD_MS = 5000;          // form stays hidden for 5 seconds
-  var TAGLINE_OUT_MS = 4200;   // tagline fades out just before the form returns
+  var GARDEN_FLOWER_COUNT = 40;   // number of default flowers along the bottom
+  var GARDEN_MIN_HEIGHT = 0.08;   // default flowers are 8% to 15% of the window height
+  var GARDEN_MAX_HEIGHT = 0.15;
+  var HOLD_MS = 5000;             // form stays hidden for 5 seconds
+  var TAGLINE_OUT_MS = 4200;      // tagline fades out just before the form returns
 
   // Each animation is paired with its matching still image
   var FLOWERS = [
@@ -79,10 +81,15 @@
     var maxHeight = window.innerHeight * 0.5; // never more than 50% of the frame
     var height = Math.min(opts.baseHeight * band.scale, maxHeight);
 
+    // New flower rises from mid-screen; default flowers sit along the bottom strip
+    var bottomPct = opts.animate
+      ? 5 + opts.depth * 40
+      : opts.depth * 3;
+
     var el = document.createElement('div');
     el.className = 'flower';
     el.style.left = opts.left + '%';
-    el.style.bottom = (5 + opts.depth * 40) + '%'; // lower on screen = closer
+    el.style.bottom = bottomPct + '%';
     el.style.height = height + 'px';
     el.style.zIndex = Math.round(opts.depth * 100);
     el.style.opacity = band.opacity;
@@ -94,7 +101,7 @@
       playGrowth(el);
     } else {
       showStill(el, pickFlower().still);
-      // Background flowers sway slowly, each at its own speed and timing
+      // Default flowers sway slowly, each at its own speed and timing
       el.classList.add('sway');
       el.style.setProperty('--sway-duration', rand(5, 9).toFixed(1) + 's');
       el.style.setProperty('--sway-delay', (-rand(0, 9)).toFixed(1) + 's');
@@ -167,12 +174,12 @@
     }, HOLD_MS);
   });
 
-  // Background garden: randomised on each load, not saved
+  // Default garden: a strip along the bottom, 8% to 15% of the window height
   for (var i = 0; i < GARDEN_FLOWER_COUNT; i++) {
     createFlower({
       left: rand(0, 98),
       depth: rand(0, 0.95),
-      baseHeight: rand(120, 200),
+      baseHeight: rand(GARDEN_MIN_HEIGHT, GARDEN_MAX_HEIGHT) * window.innerHeight,
       animate: false
     });
   }
