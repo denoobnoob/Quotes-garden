@@ -43,3 +43,11 @@ body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(to
 @media (prefers-reduced-motion: reduce) {
   .flower.sway { animation: none; }
 }
+
+/* ---------- Foreground layer (new quote flower) ---------- */
+.foreground {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
