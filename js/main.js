@@ -36,7 +36,16 @@ var el = document.createElement('div'); el.className = 'flower'; el.style.left =
 
 garden.appendChild(el);
 
-if (opts.animate) { playGrowth(el); } else { showStill(el); } return el; }
+if (opts.animate) {
+      playGrowth(el);
+    } else {
+      showStill(el);
+      // Background flowers sway slowly, each at its own speed and timing
+      el.classList.add('sway');
+      el.style.setProperty('--sway-duration', rand(5, 9).toFixed(1) + 's');
+      el.style.setProperty('--sway-delay', (-rand(0, 9)).toFixed(1) + 's');
+    }
+    return el;
 
 function saveQuote(entry) { return fetch('/api/save-quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(entry) }).then(function (res) { if (!res.ok) throw new Error('Save failed with status ' + res.status); return res.json(); }); }
 
