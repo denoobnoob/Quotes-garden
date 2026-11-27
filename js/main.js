@@ -2,8 +2,8 @@
   'use strict';
 
  var GARDEN_FLOWER_COUNT = 53;   // number of default flowers along the bottom
-  var GARDEN_MIN_HEIGHT = 0.096;  // default flowers are 9.6% to 18% of the window height
-  var GARDEN_MAX_HEIGHT = 0.18;
+  var GARDEN_MIN_HEIGHT = 0.24;  // default flowers are 9.6% to 18% of the window height
+  var GARDEN_MAX_HEIGHT = 0.28;
   var GARDEN_SIZE_MIN = 1.05;     // then 5% to 8% larger, varying from flower to flower
   var GARDEN_SIZE_MAX = 1.08;
   var HOLD_MS = 5000;             // form stays hidden for 5 seconds
