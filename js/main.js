@@ -183,8 +183,14 @@
   // Default garden: spread evenly along the bottom strip, with slight randomness
   var slotWidth = 100 / GARDEN_FLOWER_COUNT;
   for (var i = 0; i < GARDEN_FLOWER_COUNT; i++) {
+    var sizeFactor = rand(GARDEN_SIZE_MIN, GARDEN_SIZE_MAX);
+    var heightFraction = rand(GARDEN_MIN_HEIGHT, GARDEN_MAX_HEIGHT);
+
     createFlower({
       left: Math.max(0, i * slotWidth + rand(-slotWidth * 0.3, slotWidth * 0.3)),
       depth: rand(0, 0.95),
-      baseHeight: rand(GARDEN_MIN_HEIGHT, GARDEN_MAX_HEIGHT) * window.innerHeight *
-                  rand(GARDEN_SIZE_MIN, GARDEN_SIZE_MAX),
+      baseHeight: heightFraction * window.innerHeight * sizeFactor,
+      animate: false
+    });
+  }
+})();
