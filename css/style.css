@@ -15,7 +15,22 @@ body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(to
 
 .flower { position: absolute; line-height: 0; transition: opacity 0.4s ease; } .flower img, .flower video { display: block; height: 100%; width: auto; }
 
-/* ---------- Title ---------- */ #site-title { position: fixed; top: 24px; left: 40px; margin: 0; font-size: 18px; color: #3d4f35; z-index: 10; }
+#site-title {
+  position: fixed;
+  top: -1.33vw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-family: 'Urbanist', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12.73vw;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: #a6ff96;
+  z-index: 10;
+}
 
 /* ---------- Glass panel + form ---------- */ .form-wrap { position: fixed; top: 110px; left: 50%; transform: translateX(-50%); width: 500px; max-width: calc(100vw - 40px); padding: 36px 36px 32px; z-index: 10; text-align: center; background: rgba(255, 255, 255, 0.22); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.55); border-radius: 20px; box-shadow: 0 8px 32px rgba(40, 60, 30, 0.15); transition: opacity 0.8s ease; opacity: 1; } .form-wrap.is-hidden { opacity: 0; pointer-events: none; }
 
