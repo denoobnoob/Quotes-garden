@@ -162,3 +162,9 @@ body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(to
 body {
   background: #004E0E;
 }
+
+css .dialogue-stack { position: fixed; top: 21.7vw; left: 50%; transform: translateX(-50%); width: 84vw; display: flex; flex-direction: column; align-items: center; gap: 14vw; z-index: 10; }
+.dialogue-stack .form-wrap { position: relative; top: auto; left: auto; transform: none; width: 100%; }
+.dialogue-stack .enter-btn { position: relative; top: auto; bottom: auto; left: auto; transform: none; }
+
+
