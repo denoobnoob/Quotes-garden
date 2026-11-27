@@ -5,7 +5,7 @@
   var HOLD_MS = 5000;          // form stays hidden for 5 seconds
   var TAGLINE_OUT_MS = 4200;   // tagline fades out just before the form returns
 
-  var STILL_SRC = 'assets/flower-still.png';
+  var STILL_IMAGES = ['assets/A1.png', 'assets/B1.png', 'assets/C1.png', 'assets/D1.png'];
   var VIDEO_WEBM = 'assets/flower.webm';
   var VIDEO_MOV = 'assets/flower.mov';
 
@@ -31,6 +31,11 @@
     return min + Math.random() * (max - min);
   }
 
+  // Pick one of the four flower images at random
+  function pickStill() {
+    return STILL_IMAGES[Math.floor(Math.random() * STILL_IMAGES.length)];
+  }
+
   // depth: 0 = furthest back, 1 = closest to the viewer
   function bandFor(depth) {
     if (depth < 0.33) return BANDS.far;
@@ -42,26 +47,27 @@
     statusEl.textContent = message;
   }
 
-  function showStill(el) {
-    el.innerHTML = '<img src="' + STILL_SRC + '" alt="">';
+  function showStill(el, src) {
+    el.innerHTML = '<img src="' + src + '" alt="">';
   }
 
   function playGrowth(el) {
+    var still = pickStill();
     el.innerHTML =
-      '<video muted playsinline poster="' + STILL_SRC + '">' +
+      '<video muted playsinline poster="' + still + '">' +
         '<source src="' + VIDEO_WEBM + '" type="video/webm">' +
         '<source src="' + VIDEO_MOV + '" type="video/quicktime">' +
       '</video>';
 
     var video = el.querySelector('video');
 
-    // Once the bloom has finished, swap to the lightweight still image
-    video.addEventListener('ended', function () { showStill(el); });
-    video.addEventListener('error', function () { showStill(el); });
+    // Once the bloom has finished, swap to the still image
+    video.addEventListener('ended', function () { showStill(el, still); });
+    video.addEventListener('error', function () { showStill(el, still); });
 
     var playing = video.play();
     if (playing && playing.catch) {
-      playing.catch(function () { showStill(el); });
+      playing.catch(function () { showStill(el, still); });
     }
   }
 
@@ -84,7 +90,7 @@
     if (opts.animate) {
       playGrowth(el);
     } else {
-      showStill(el);
+      showStill(el, pickStill());
       // Background flowers sway slowly, each at its own speed and timing
       el.classList.add('sway');
       el.style.setProperty('--sway-duration', rand(5, 9).toFixed(1) + 's');
