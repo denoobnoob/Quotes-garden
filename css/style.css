@@ -142,7 +142,7 @@ body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(to
 .enter-btn {
   position: fixed;
   left: 50%;
-  bottom: 4vw;
+  top: 57vw;
   transform: translateX(-50%);
   width: 23.5vw;
   height: 5.15vw;
