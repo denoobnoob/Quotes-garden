@@ -122,7 +122,7 @@ body {
   width: 100%;
   padding: calc(var(--u) * 28) calc(var(--u) * 38) calc(var(--u) * 29);
   border-radius: calc(var(--u) * 30);
-  background: rgba(0, 78, 14, 0.2);
+  background: hex(012908);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
