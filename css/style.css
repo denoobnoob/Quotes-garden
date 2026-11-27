@@ -9,7 +9,7 @@ html, body { margin: 0; height: 100%; }
 
 body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(to bottom, #dfe9f3 0%, #eef3e6 55%, #cfdcb8 100%); overflow: hidden; position: relative; }
 
-/* ---------- Tagline (behind the garden) ---------- */ #tagline { position: fixed; top: 38%; left: 0; right: 0; margin: 0; text-align: center; font-size: 36px; font-weight: normal; letter-spacing: 2px; color: rgba(47, 61, 41, 0.35); z-index: 0; opacity: 0; transition: opacity 0.8s ease; pointer-events: none; } #tagline.is-visible { opacity: 1; }
+/* ---------- Tagline (behind the garden) ---------- */ #tagline { position: fixed; top: 38%; left: 12%; right: 12%; margin: 0; text-align: center; font-size: 36px; font-weight: normal; letter-spacing: 2px; color: rgba(47, 61, 41, 0.35); z-index: 0; opacity: 0; transition: opacity 0.8s ease; pointer-events: none; } #tagline.is-visible { opacity: 1; }
 
 /* ---------- Garden ---------- */ .garden { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
 
