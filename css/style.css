@@ -72,5 +72,4 @@ css /* ---------- Dialogue box (from Figma) ---------- / .form-wrap { top: 21.7v
 
 .enter-btn { position: fixed; left: 50%; bottom: 4vw; transform: translateX(-50%); width: 23.5vw; /* 406px / height: 5.15vw; / 89px / padding: 0 1.6vw; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; background: rgba(0, 78, 14, 0.2); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #fffae8; font-family: inherit; font-size: 1.16vw; / estimate, confirm from Figma */ cursor: pointer; z-index: 10; }
 
-}
 
