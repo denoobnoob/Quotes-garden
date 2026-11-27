@@ -2,10 +2,8 @@
   'use strict';
 
   var GARDEN_FLOWER_COUNT = 53;   // number of default flowers along the bottom
-  var GARDEN_MIN_HEIGHT = 0.34;   // default flowers average around 35% of the window height
-  var GARDEN_MAX_HEIGHT = 0.40;
-  var GARDEN_SIZE_MIN = 1.05;     // then 5% to 8% larger, varying from flower to flower
-  var GARDEN_SIZE_MAX = 1.08;
+  var GARDEN_BASE_HEIGHT = 0.37;  // default flowers average 37% of the window height
+  var GARDEN_VARIATION = 0.075;    // each flower varies 5% either way, a 10% spread overall
   var HOLD_MS = 5000;             // form stays hidden for 5 seconds
   var TAGLINE_OUT_MS = 4200;      // tagline fades out just before the form returns
 
@@ -180,16 +178,15 @@
     }, HOLD_MS);
   });
 
-  // Default garden: spread evenly along the bottom strip, with slight randomness
+  // Default garden: spread evenly along the bottom, each flower 10% varied in height
   var slotWidth = 100 / GARDEN_FLOWER_COUNT;
   for (var i = 0; i < GARDEN_FLOWER_COUNT; i++) {
-    var sizeFactor = rand(GARDEN_SIZE_MIN, GARDEN_SIZE_MAX);
-    var heightFraction = rand(GARDEN_MIN_HEIGHT, GARDEN_MAX_HEIGHT);
+    var variation = rand(1 - GARDEN_VARIATION, 1 + GARDEN_VARIATION);
 
     createFlower({
       left: Math.max(0, i * slotWidth + rand(-slotWidth * 0.3, slotWidth * 0.3)),
       depth: rand(0, 0.95),
-      baseHeight: heightFraction * window.innerHeight * sizeFactor,
+      baseHeight: GARDEN_BASE_HEIGHT * window.innerHeight * variation,
       animate: false
     });
   }
