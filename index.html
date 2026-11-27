@@ -1,1 +1,33 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quote Garden</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+  <p id="tagline">Plant your quotes</p>
+
+  <div id="garden" class="garden" aria-hidden="true"></div>
+
+  <h1 id="site-title">Quote Garden</h1>
+
+  <main class="form-wrap" id="form-wrap">
+    <h2 id="hero-title">Plant a quote</h2>
+    <p id="hero-text">Every quote you add grows a new flower.</p>
+
+    <form id="quote-form">
+      <textarea id="quote-input" class="quote-box" placeholder="Input your quote"></textarea>
+      <div class="small-row">
+        <input id="book-input" class="small-box" type="text" placeholder="Book title">
+        <input id="author-input" class="small-box" type="text" placeholder="Author">
+      </div>
+      <button id="plant-btn" class="btn" type="submit">Plant</button>
+      <p id="status" class="status" role="status"></p>
+    </form>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
