@@ -28,3 +28,18 @@ body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(to
 .btn { margin: 18px auto 0; width: 160px; padding: 10px; background: rgba(79, 107, 69, 0.9); color: #fff; border: none; border-radius: 10px; font-family: inherit; font-size: 14px; cursor: pointer; }
 
 .status { min-height: 18px; margin: 12px 0 0; font-size: 13px; color: #8a2b2b; }
+
+/* ---------- Background sway ---------- */
+.flower.sway {
+  transform-origin: 50% 100%;
+  animation: sway var(--sway-duration, 6s) ease-in-out var(--sway-delay, 0s) infinite alternate;
+}
+
+@keyframes sway {
+  from { transform: rotate(-1.2deg); }
+  to   { transform: rotate(1.2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flower.sway { animation: none; }
+}
