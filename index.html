@@ -15,19 +15,21 @@
 
   <h1 id="site-title">QUOTES GARDEN</h1>
 
-  <main class="form-wrap" id="form-wrap">
-    <form id="quote-form">
-      <textarea id="quote-input" class="quote-box" placeholder="Input your quotes here"></textarea>
-      <div class="small-row">
-        <input id="book-input" class="small-box" type="text" placeholder="Book">
-        <input id="author-input" class="small-box" type="text" placeholder="Author">
-        <button id="plant-btn" class="arrow-btn" type="submit" aria-label="Plant quote">&uarr;</button>
-      </div>
-      <p id="status" class="status" role="status"></p>
-    </form>
-  </main>
+  <div class="dialogue-stack">
+    <main class="form-wrap" id="form-wrap">
+      <form id="quote-form">
+        <textarea id="quote-input" class="quote-box" placeholder="Input your quotes here"></textarea>
+        <div class="small-row">
+          <input id="book-input" class="small-box" type="text" placeholder="Book">
+          <input id="author-input" class="small-box" type="text" placeholder="Author">
+          <button id="plant-btn" class="arrow-btn" type="submit" aria-label="Plant quote">&uarr;</button>
+        </div>
+        <p id="status" class="status" role="status"></p>
+      </form>
+    </main>
 
-  <button id="enter-btn" class="enter-btn" type="button">Enter quotes garden</button>
+    <button id="enter-btn" class="enter-btn" type="button">Enter quotes garden</button>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
