@@ -60,7 +60,7 @@ body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(to
   z-index: 5;
 }
 
-css /* ---------- Dialogue box (from Figma) ---------- / .form-wrap { top: 21.7vw; / 375px on a 1728px frame / width: 84vw; / 1451px / padding: 1.62vw 2.2vw 1.68vw; / 28px top, 38px sides, 29px bottom / border-radius: 30px; background: rgba(0, 78, 14, 0.2); / estimate, the Figma panel fill is hidden */ border: 1px solid rgba(255, 255, 255, 0.3); }
+/* ---------- Dialogue box (from Figma) ---------- / .form-wrap { top: 21.7vw; / 375px on a 1728px frame / width: 84vw; / 1451px / padding: 1.62vw 2.2vw 1.68vw; / 28px top, 38px sides, 29px bottom / border-radius: 30px; background: rgba(0, 78, 14, 0.2); / estimate, the Figma panel fill is hidden */ border: 1px solid rgba(255, 255, 255, 0.3); }
 
 .quote-box { height: 10.9vw; /* 188px / padding: 3.8vw 1.5vw 0; border-radius: 30px; background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), rgba(133, 138, 135, 0.25); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); font-size: 1.16vw; / estimate, confirm from Figma */ color: #ffffff; } .quote-box::placeholder { color: rgba(255, 255, 255, 0.7); }
 
